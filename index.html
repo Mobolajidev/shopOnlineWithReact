@@ -1,0 +1,74 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/javascript" src="carShop.js"></script>
+   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    
+    <title>Shop With React</title>
+    <link rel="icon" 
+      type="images/favicon.ico" 
+      href=images/favicon.ico>
+    </head>
+    
+    <body>
+    <div id="Shop"></div>
+        <script type="text/babel">
+        
+        function renderCars({ CARS}){
+            return (
+            <div key={cars.id} className="col-md-3 col-sm-6 col-12 mt-3">
+                    
+                    <div className="card">
+                          <div className="card-body">
+                              {cars.label ? <span className="badge">USED</span>
+                             : null }
+                             <img className="card-img bg-light" src={cars.image}
+                             width="200px" height="250px" />
+                             <a href="#" className="card-link text-body">{cars.name}</a>
+                             <p><strong>{cars.price}</strong></p>
+                         </div>
+                     </div>
+                </div>
+            
+            )
+            
+        };
+
+
+ class shop extends React.Component {
+            constructor(props) {
+            super(props);
+
+            this.state = {
+                cars: CARS
+                }
+            }
+            render() {
+                const Clothes = this.state.clothes.map((cars) => {
+                    return (
+                         <RenderClothes key={cars.id} clothes={cloth} />
+                        )
+                    })
+                return(
+                    <div className="container">
+                    <div className="row m-auto">
+                         {CARS}
+                    </div>
+                     </div>
+                         )}
+                    }
+        ReactDOM.render(<Shop />, document.getElementById('Shop'));
+        
+        
+        
+        </script>
+
+    
+    
+    </body>
+</html>
